@@ -4,13 +4,13 @@ from app.utils.custom_error import custom_error
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers.mcp_router import router as mcp_router
 
-langchain_mcp = FastAPI(
+asesor_ia = FastAPI(
     title="API para consumir los servicios de IA",
-    docs_url="/langchain/docs",
-    openapi_url="/langchain/openapi.json",
+    docs_url="/asesor_ia/docs",
+    openapi_url="/asesor_ia/openapi.json",
     lifespan=lifespan
 )
-langchain_mcp.add_middleware(
+asesor_ia.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
@@ -19,9 +19,9 @@ langchain_mcp.add_middleware(
 )
 
 # Manejador de excepciones personalizada
-@langchain_mcp.exception_handler(HTTPException)
+@asesor_ia.exception_handler(HTTPException)
 def manage_exception(exc):
     return custom_error(exc)
 
 
-langchain_mcp.include_router(mcp_router)
+asesor_ia.include_router(mcp_router)

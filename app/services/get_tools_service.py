@@ -8,7 +8,7 @@ def get_tools_service():
         {
             "math": {
                 "command": "python",
-                "args": ["-m", "app.tools.math"],
+                "args": ["-m", "app.tools.math_tools"],
                 "transport": "stdio",
             },
         }

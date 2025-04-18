@@ -25,12 +25,9 @@ async def generate_answer_agent_service(data_chat: ChatRequest, agent_ai: Compil
         # context = client_db.search_documents(data_chat.user_message)
 
         # Ejecutamos el agente
-        # async for event in agent.astream({"messages": user_message, "context": context}, stream_mode="messages", config=config):
-        async for event in agent_ai.astream({"messages": user_message}, stream_mode="messages", config=config):
-            print(event[0].content, end="", flush=True)
-            yield event[0].content
-
-        print("\n")
+        response = await agent_ai.ainvoke({"messages": user_message}, stream_mode="values", config=config)
+        print(response['messages'][-1].content)
+        return response['messages'][-1].content
     
     except Exception as e:
         print("Se ha producido un error:", e, e.args)

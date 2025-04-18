@@ -1,2 +1,2 @@
 source .venv/bin/activate
-uvicorn app.main:langchain_mcp --port 9001 --reload
+uvicorn app.main:asesor_ia --port 9001 --reload

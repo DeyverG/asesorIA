@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     prefix_route: str = ""
     collection_name: str = ""
-    api_key: str = ""
+    telegram_bot_token: str = ""
 
     class Config:
         env_file = ".env"

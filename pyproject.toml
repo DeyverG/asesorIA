@@ -12,5 +12,6 @@ dependencies = [
     "langchain-openai>=0.3.12",
     "langgraph>=0.3.27",
     "pydantic-settings>=2.8.1",
+    "python-telegram-bot>=22.0",
     "uvicorn>=0.34.0",
 ]
